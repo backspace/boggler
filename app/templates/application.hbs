@@ -1,4 +1,6 @@
-{{input value=board}}
-<button type="submit" {{action "submit"}}>Find words</button>
+<form {{action "submit" on="submit"}}>
+  {{input value=board}}
+  <button type="submit" {{action "submit"}}>Find words</button>
+</form>
 
 {{outlet}}

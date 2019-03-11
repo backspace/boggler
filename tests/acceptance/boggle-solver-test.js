@@ -1,5 +1,5 @@
-import { module, test } from 'qunit';
-import { click, fillIn, findAll, visit, currentURL } from '@ember/test-helpers';
+import { module, skip, test } from 'qunit';
+import { click, fillIn, findAll, triggerKeyEvent, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance | boggle solver', function(hooks) {
@@ -21,5 +21,13 @@ module('Acceptance | boggle solver', function(hooks) {
     assert.equal(answers[3], 'cab');
     assert.equal(answers[4], 'cad');
     assert.equal(answers[5], 'dab');
+  });
+
+  skip('the form can be submitted with the enter key', async function(assert) {
+    await visit('/');
+    await fillIn('input', 'abcd');
+    await triggerKeyEvent('input', 'keyup', 'Enter');
+
+    assert.equal(currentURL(), '/abcd');
   });
 });
