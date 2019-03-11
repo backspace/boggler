@@ -20,7 +20,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    apiEndpoint: process.env.API_ENDPOINT || 'http://localhost:3000'
   };
 
   if (environment === 'development') {

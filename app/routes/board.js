@@ -2,8 +2,15 @@ import Route from '@ember/routing/route';
 import wordFinder from 'boggler/utils/word-finder';
 import words from 'boggler/utils/words';
 
+import Ember from 'ember';
+import config from 'boggler/config/environment';
+
 export default Route.extend({
   model({ board }) {
-    return wordFinder(board, words);
+    if (Ember.testing) {
+      return wordFinder(board, words);
+    } else {
+      return fetch(`${config.apiEndpoint}/${board}`).then(response => response.json());
+    }
   }
 });
