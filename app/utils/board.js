@@ -29,7 +29,15 @@ export default class Board {
     let positions = [];
 
     if (row > 0) {
+      if (column > 0) {
+        positions.push({row: row - 1, column: column - 1});
+      }
+
       positions.push({row: row - 1, column});
+
+      if (column + 1 < this.width) {
+        positions.push({row: row - 1, column: column + 1});
+      }
     }
 
     if (column > 0) {
@@ -41,7 +49,15 @@ export default class Board {
     }
 
     if (row + 1 < this.height) {
+      if (column > 0) {
+        positions.push({row: row + 1, column: column - 1});
+      }
+
       positions.push({row: row + 1, column});
+
+      if (column + 1 < this.width) {
+        positions.push({row: row + 1, column: column + 1});
+      }
     }
 
     return positions;
