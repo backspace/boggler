@@ -14,10 +14,8 @@ module('Acceptance | boggle solver', function(hooks) {
 
     let answers = findAll('#answers li').map(element => element.innerHTML);
 
+    assert.equal(answers.length, 2);
     assert.equal(answers[0], 'ab');
-    assert.equal(answers[1], 'ad');
-    assert.equal(answers[2], 'bad');
-    assert.equal(answers[3], 'cad');
-    assert.equal(answers[4], 'dab');
+    assert.equal(answers[1], 'cab');
   });
 });
