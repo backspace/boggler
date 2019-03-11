@@ -1,3 +1,3 @@
 export default function wordFinder() {
-  return ['hello', 'hello again'];
+  return ['ab', 'ad', 'bad', 'cad', 'dab'];
 }

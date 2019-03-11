@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { click, fillIn, find, visit, currentURL } from '@ember/test-helpers';
+import { click, fillIn, findAll, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance | boggle solver', function(hooks) {
@@ -7,12 +7,17 @@ module('Acceptance | boggle solver', function(hooks) {
 
   test('entering a board shows found words', async function(assert) {
     await visit('/');
-    await fillIn('input', 'ABCDEF');
+    await fillIn('input', 'abcd');
     await click('button');
 
-    assert.equal(currentURL(), '/ABCDEF');
+    assert.equal(currentURL(), '/abcd');
 
-    assert.equal(find('#answers li:first-child').innerHTML, 'hello');
-    assert.equal(find('#answers li:last-child').innerHTML, 'hello again');
+    let answers = findAll('#answers li').map(element => element.innerHTML);
+
+    assert.equal(answers[0], 'ab');
+    assert.equal(answers[1], 'ad');
+    assert.equal(answers[2], 'bad');
+    assert.equal(answers[3], 'cad');
+    assert.equal(answers[4], 'dab');
   });
 });
