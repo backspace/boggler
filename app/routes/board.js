@@ -7,6 +7,8 @@ import config from 'boggler/config/environment';
 
 export default Route.extend({
   model({ board }) {
+    this.controllerFor('application').set('board', board);
+
     if (Ember.testing) {
       return wordFinder(board, words);
     } else {
