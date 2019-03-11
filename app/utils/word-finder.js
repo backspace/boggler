@@ -1,3 +1,3 @@
-export default function wordFinder() {
-  return ['ab', 'ad', 'bad', 'cad', 'dab'];
+export default function wordFinder(board, words) {
+  return words;
 }

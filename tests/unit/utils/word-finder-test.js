@@ -2,8 +2,8 @@ import wordFinder from 'boggler/utils/word-finder';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | word-finder', function() {
-  test('it finds words from a board', function(assert) {
-    let result = wordFinder('abcd');
+  test('it finds words from a board and a list of words', function(assert) {
+    let result = wordFinder('abcd', ['ab', 'ad', 'bad', 'cad', 'dab']);
     assert.deepEqual(result, ['ab', 'ad', 'bad', 'cad', 'dab']);
   });
 });
