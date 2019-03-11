@@ -1,7 +1,11 @@
 # boggler
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a prototype word-finder for the game Boggler. Try it [here](https://bboggler.herokuapp.com/).
+
+Known limitations:
+* assumes a square board
+* case-sensitive
+* uses a hard-coded word list
 
 ## Prerequisites
 
