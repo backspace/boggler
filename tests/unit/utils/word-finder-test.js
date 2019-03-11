@@ -6,4 +6,9 @@ module('Unit | Utility | word-finder', function() {
     let result = wordFinder('abcd', ['ab', 'ad', 'bad', 'cab', 'cad', 'dab', 'dad']);
     assert.deepEqual(result, ['ab', 'ad', 'bad', 'cab', 'cad', 'dab']);
   });
+
+  test('it removes duplicates', function(assert) {
+    let result = wordFinder('aaaa', ['aa']);
+    assert.deepEqual(result, ['aa']);
+  });
 });
